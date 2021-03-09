@@ -11,5 +11,13 @@ export default [
         key: "3",
         image: "https://www.pinclipart.com/picdir/big/374-3744863_icon-doctor-doctores-vector-clipart.png",
         especialidade: "Oftalmologista"
+    },{
+        key: "4",
+        image: "https://www.pinclipart.com/picdir/big/374-3744863_icon-doctor-doctores-vector-clipart.png",
+        especialidade: "Pediatra"
+    },{
+        key: "5",
+        image: "https://www.pinclipart.com/picdir/big/374-3744863_icon-doctor-doctores-vector-clipart.png",
+        especialidade: "Cardiologista"
     }
 ]
