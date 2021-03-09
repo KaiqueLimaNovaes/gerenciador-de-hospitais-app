@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from 'react-native';
 export default function SplashScreen() {
   return (
     <View style={styles.container}>
-      <Text>Splash</Text>
+      <Text>Login 1</Text>
     </View>
   );
 }

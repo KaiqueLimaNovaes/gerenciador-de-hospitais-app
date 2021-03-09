@@ -1,0 +1,30 @@
+
+  const scrollX = React.useRef(new Animated.Value(0)).current;
+
+  const FullSize = (380 * 0.68) + 12 * 2
+
+
+snapToInterval = {FullSize}
+
+onScroll = {Animated.event(
+          [{nativeEvent: {contentOffset: {x: scrollX}}}],
+          {useNativeDriver: true}
+        )}
+
+
+
+ const inputRange = [(index - 1) * FullSize, index * FullSize, (index + 1) * FullSize ];
+
+          const translateX = scrollX.interpolate({
+            inputRange,
+            outputRange: [ 500, 0, 500 ],
+          });
+
+          const scaleE = scrollX.interpolate({
+            inputRange,
+            outputRange: [1, 1.1, 1],
+          });
+
+
+{transform: [{scaleE}]}
+{transform: [{translateX}]}

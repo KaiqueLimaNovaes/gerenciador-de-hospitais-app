@@ -10,13 +10,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
-  if (state.isLoading) {
-    return <SplashScreen />;
-  }
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Hospitais"
         activeColor="#70d5fc"
         inactiveColor="black"
         barStyle={{ backgroundColor: '#FFFFFF' }}
@@ -43,12 +40,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F6F6F7',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
