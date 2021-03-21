@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
+import Mapa from '../../components/map/Map';
+
 export default function User() {
   return (
     <View style={styles.container}>
+      <Text>Usuário</Text>
+      <Mapa />
       <Text>Usuário</Text>
     </View>
   );

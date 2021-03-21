@@ -17,12 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.yourappname"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.yourcompany.yourappname",
+      "config": {
+          "googleMaps": { "apiKey": "AIzaSyAWCjO6mv0_urQ7__ZEYs68jxintleCnrU" }   
       }
     },
     "web": {
