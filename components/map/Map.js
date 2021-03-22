@@ -4,18 +4,32 @@ import MapView from 'react-native-maps';
 import { StyleSheet, View } from 'react-native';
 
 export default class Mapa extends Component {
+    state = {
+        region: null,
+    };
+
+    async componentDidMount(){
+        navigator.geolocation.getCurrentPosition(
+            ({ coords: {latitude, longitude} }) => {
+                this.setState({ region: {latitude, longitude, latitudeDelta: 0.0143, longitudeDelta: 0.0134} })
+            },
+            () => {},
+            {
+                timeout: 2000,
+                enableHighAccuracy: true,
+                maximumAge: 1000,
+            }
+        )
+    }
 
     render(){
+        const {region} = this.state;
+
         return(
             <View style={styles.contMapa}>
                 <MapView
                     style={styles.mapa}
-                    region={{
-                        latitude: -23.4253,
-                        longitude: -46.5155,
-                        latitudeDelta: 0.0143,
-                        longitudeDelta: 0.0134,
-                    }}
+                    region={region}
                     showsUserLocation={true}
                     loadingEnabled
                 />
