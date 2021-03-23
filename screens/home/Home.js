@@ -3,9 +3,9 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import data from '../../config/data/especialidades.js';
+import dato from '../../config/data/especialidades.js';
 
-import Grande from '../../assets/images/hospitalgrande.png'
+import ListaHospitais from './ListaHospitais';
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
       
       <View>
         <FlatList
-          data = {data}
+          data = {dato}
           keyExtractor = {item => item.key}
           horizontal
           showsHorizontalScrollIndicator = {false}
@@ -35,26 +35,7 @@ export default function Home() {
 
       <Text style={styles.textoTitulo}>Hospitais</Text>
 
-      <FlatList style={styles.listaHospitais}
-        data = {data}
-        keyExtractor = {item => item.key}
-        decelerationRate = 'fast'
-        renderItem = {({item}) => {
-          return<TouchableOpacity onPress={() => {}} style={styles.cardHospitais}>
-            <View style={styles.timeIndicator}>
-              <Image source={Grande} style={styles.imageH}/>
-            </View>
-            <View style={styles.textoCardH}>
-              <Text id="esp" style={styles.textoEspecialidade}>{item.especialidade}</Text>
-              <Text style={styles.textoMin}>5km de distancia</Text>
-            </View>
-            <View style={styles.timeIndicator}>
-              <Text style={styles.textoTime}>45</Text>
-              <Text style={styles.textoMin}>min</Text>
-            </View>
-          </TouchableOpacity> 
-        }}
-      />
+      <ListaHospitais />
     </View>
   );
 }
