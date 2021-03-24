@@ -3,9 +3,9 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import axios from "axios";
 
-import Grande from '../../assets/images/hospitalgrande.png';
-import Medio from '../../assets/images/hospitalmedio.png';
-import Pequeno from '../../assets/images/hospitalpequeno.png';
+import Grande from '../../assets/images/Grande.png';
+import Medio from '../../assets/images/Medio.png';
+import Pequeno from '../../assets/images/Pequeno.png';
 
 import dato from '../../config/data/especialidades.js';
 
@@ -23,30 +23,41 @@ export default function ListaHospitais() {
 
     //console.warn(hospitais);
 
+    const imageP = {
+      porte: {
+        Grande: require('../../assets/images/Grande.png'),
+        Medio: require('../../assets/images/Medio.png'),
+        Pequeno: require('../../assets/images/Pequeno.png'),
+      }
+    }
+
     return(
         <FlatList style={styles.listaHospitais}
             data = {hospitais}
             keyExtractor = {(item) => item.id}
             decelerationRate = 'fast'
-            renderItem = {({item}) => {
-            return<TouchableOpacity onPress={() => {}} style={styles.cardHospitais}>
+            renderItem = {({item}) => (
+            <TouchableOpacity onPress={() => {}} style={styles.cardHospitais}>
                 <View style={styles.timeIndicator}>
-                  <Image source={item.porte} style={styles.imageH}/>
+                  <Image source={imageP.porte[item.porte]} style={styles.imageH}/>
                 </View>
+
                 <View style={styles.textoCardH}>
                   <View style={styles.nomeField}>
                     <Text id="esp" numberOfLines={2} style={styles.textoEspecialidade}>{item.nome}</Text>
                   </View>
+                  
                   <View style={styles.distField}>
                     <Text style={styles.textoMin}>5km de distancia</Text>
                   </View>
                 </View>
+
                 <View style={styles.timeIndicator}>
                   <Text style={styles.textoTime}>45</Text>
                   <Text style={styles.textoMin}>min</Text>
                 </View>
             </TouchableOpacity> 
-            }}
+            )}
         />
     )
     
