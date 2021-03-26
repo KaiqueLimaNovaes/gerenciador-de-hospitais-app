@@ -2,10 +2,22 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import * as Screens from "./screens";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+const Stack = createStackNavigator();
+
+export function ScreenNav() {
+  return (
+    <Stack.Navigator>
+        <Stack.Screen name="Hospitais" component={Screens.Home} />
+        <Stack.Screen name="HospitalDetails" component={Screens.HospitalDetails} />
+    </Stack.Navigator>
+  );
+}
 
 const Tab = createMaterialBottomTabNavigator();
 

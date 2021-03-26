@@ -3,11 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import axios from "axios";
 
-import Grande from '../../assets/images/Grande.png';
-import Medio from '../../assets/images/Medio.png';
-import Pequeno from '../../assets/images/Pequeno.png';
-
-import dato from '../../config/data/especialidades.js';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ListaHospitais() {
     const [hospitais, setHospitais] = useState([]);
@@ -31,13 +27,18 @@ export default function ListaHospitais() {
       }
     }
 
+    const navigation = useNavigation();
+
     return(
         <FlatList style={styles.listaHospitais}
             data = {hospitais}
             keyExtractor = {(item) => item.id}
             decelerationRate = 'fast'
             renderItem = {({item}) => (
-            <TouchableOpacity onPress={() => {}} style={styles.cardHospitais}>
+            <TouchableOpacity onPress={() => {
+              navigation.navigate('HospitalDetails', { item })
+            }} style={styles.cardHospitais}>
+
                 <View style={styles.timeIndicator}>
                   <Image source={imageP.porte[item.porte]} style={styles.imageH}/>
                 </View>
@@ -56,6 +57,7 @@ export default function ListaHospitais() {
                   <Text style={styles.textoTime}>45</Text>
                   <Text style={styles.textoMin}>min</Text>
                 </View>
+
             </TouchableOpacity> 
             )}
         />
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
       elevation: 9,
     },
     nomeField: {
-      width: 180,
+      width: 165,
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
