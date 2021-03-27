@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
-export default function HospitalDetails() {
+export default function HospitalDetails(item) {
 
     return(
         <View>
-            <Text>Hospital details</Text>
+            <Text style={styles.tituloHospital}>{item.nome}</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    tituloHospital: {
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+});

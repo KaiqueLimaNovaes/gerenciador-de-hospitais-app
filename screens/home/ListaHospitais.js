@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { useNavigation } from '@react-navigation/native';
 
-export default function ListaHospitais() {
+export default function ListaHospitais(props) {
     const [hospitais, setHospitais] = useState([]);
     
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function ListaHospitais() {
          });
     }, []);
 
-    //console.warn(hospitais);
+    //console.warn(props.children.navigation.navigate);
 
     const imageP = {
       porte: {
@@ -27,7 +27,7 @@ export default function ListaHospitais() {
       }
     }
 
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
     return(
         <FlatList style={styles.listaHospitais}
@@ -36,7 +36,7 @@ export default function ListaHospitais() {
             decelerationRate = 'fast'
             renderItem = {({item}) => (
             <TouchableOpacity onPress={() => {
-              navigation.navigate('HospitalDetails', { item })
+              props.children.navigation.navigate('HospitalDetails', { item })
             }} style={styles.cardHospitais}>
 
                 <View style={styles.timeIndicator}>

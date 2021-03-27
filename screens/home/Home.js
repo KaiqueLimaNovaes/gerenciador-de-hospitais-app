@@ -7,7 +7,7 @@ import dato from '../../config/data/especialidades.js';
 
 import ListaHospitais from './ListaHospitais';
 
-export default function Home() {
+export default function Home(props) {
 
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function Home() {
 
       <Text style={styles.textoTitulo}>Hospitais</Text>
 
-      <ListaHospitais />
+      <ListaHospitais>{props}</ListaHospitais>
     </View>
   );
 }

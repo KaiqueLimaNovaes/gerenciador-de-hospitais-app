@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 export function ScreenNav() {
   return (
     <Stack.Navigator>
-        <Stack.Screen name="Hospitais" component={Screens.Home} />
+        <Stack.Screen options={{headerShown: false}} name="Hospitais" component={Screens.Home} />
         <Stack.Screen name="HospitalDetails" component={Screens.HospitalDetails} />
     </Stack.Navigator>
   );
@@ -38,7 +38,7 @@ export default function App() {
 
         <Tab.Screen 
           name="Hospitais"
-          component={Screens.Home}
+          component={ScreenNav}
           options={{tabBarIcon:({ color }) => (<Icon name="user-md" color={color} size={27} />)}}
         />
 
