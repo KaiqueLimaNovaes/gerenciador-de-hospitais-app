@@ -27,7 +27,7 @@
       },
       "package": "com.yourcompany.yourappname",
       "config": {
-          "googleMaps": { "apiKey": "AIzaSyAWCjO6mv0_urQ7__ZEYs68jxintleCnrU" }   
+          "googleMaps": { "apiKey": "AIzaSyA7-sqroMS9DYp4_UfIHsTqxHYNYi-Qh2o" }   
       }
     },
     "web": {

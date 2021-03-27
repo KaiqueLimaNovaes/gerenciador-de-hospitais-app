@@ -7,7 +7,7 @@ export default function ListaHospitais(props) {
     const [hospitais, setHospitais] = useState([]);
     
     useEffect(() => {
-        axios.get("http://192.168.0.38:3000/hospitais").then((response) => {
+        axios.get("http://192.168.0.105:3000/hospitais").then((response) => {
         setHospitais(response.data.hospitais);
         }).catch((error)=>{
             console.log("Api call error");
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
       marginLeft: 'auto',
       marginRight: 'auto',
       marginBottom: 20,
-      width: '90%',
+      width: '95%',
       height: 90,
       borderRadius: 20,
       backgroundColor: '#FFFFFF',
@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
       elevation: 9,
     },
     nomeField: {
-      width: 150,
+      width: 155,
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
     },
     distField: {
-      width: 180,
+      width: 155,
       height: 20,
       alignItems: 'center',
       justifyContent: 'center',

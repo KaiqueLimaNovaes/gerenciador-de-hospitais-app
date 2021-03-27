@@ -7,17 +7,24 @@ export default function HospitalDetails({route}) {
 
     const {item} = route.params;
 
+    const lat = item.latitude;
+    const lng = item.longitude;
+
     return(
-        <View>
+        <View style={styles.container}>
+            <Mapa>{[item.latitude, item.longitude]}</Mapa>
             <Text style={styles.tituloHospital}>{item.nome}</Text>
-            <Mapa />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f6f6f7',
+    },
     tituloHospital: {
-      fontSize: 18,
-      fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
 });
