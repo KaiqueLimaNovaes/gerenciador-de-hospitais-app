@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
-export default function HospitalDetails(item) {
+import Mapa from '../../components/map/Map';
+
+export default function HospitalDetails({route}) {
+
+    const {item} = route.params;
 
     return(
         <View>
             <Text style={styles.tituloHospital}>{item.nome}</Text>
+            <Mapa />
         </View>
     )
 }

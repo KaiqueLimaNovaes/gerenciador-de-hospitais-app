@@ -3,8 +3,6 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import axios from "axios";
 
-import { useNavigation } from '@react-navigation/native';
-
 export default function ListaHospitais(props) {
     const [hospitais, setHospitais] = useState([]);
     
@@ -91,7 +89,7 @@ const styles = StyleSheet.create({
       elevation: 9,
     },
     nomeField: {
-      width: 165,
+      width: 150,
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
