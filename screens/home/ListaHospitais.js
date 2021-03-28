@@ -26,20 +26,21 @@ export default function ListaHospitais(props) {
       }
     }
     //------------------------------------------//
-
-    //- Formula para calcular distancia entre as coordenadas -//
+    
+    //- Calculo da distancia entre as coordenadas -//
     const latU = -23.4253133
     const longU = -46.5154733
-    const latH = -23.53250
-    const longH = -46.77667
+    let latH = -23.53250
+    let longH = -46.77667
 
-    // Teorema de Pitagoras
+    // Tive que passar a parada toda para dentro do if
 
     let DLA = (((latU * (-1)) - (latH * (-1))) * 111.12)
     let DLO = (((longU * (-1)) - (longH * (-1))) * 111.12)
-    let dist = Math.ceil(Math.sqrt((Math.abs(DLA) ** 2) + (Math.abs(DLO) ** 2)))
 
-    //console.warn(dist)
+    // Teorema de Pitagoras [ dist² = DLA² + DLO² ]
+
+    let dist = Math.ceil(Math.sqrt((Math.abs(DLA) ** 2) + (Math.abs(DLO) ** 2)))
     //------------------------------------------//
 
     return(
@@ -47,40 +48,44 @@ export default function ListaHospitais(props) {
             data = {hospitais}
             keyExtractor = {(item) => item.id}
             decelerationRate = 'fast'
-            renderItem = {({item}) => (
-            <TouchableOpacity onPress={() => {
-              props.children.navigation.navigate('HospitalDetails', { item })
-            }} style={styles.cardHospitais}>
-
-                <View style={styles.timeIndicator}>
-                  <Image source={imageP.porte[item.porte]} style={styles.imageH}/>
-                </View>
-
-                <View style={styles.textoCardH}>
-                  <View style={styles.nomeField}>
-                    <Text id="esp" numberOfLines={2} style={styles.textoEspecialidade}>{item.nome}</Text>
-                  </View>
-                  
-                  <View style={styles.distField}>
-                    <Text style={styles.textoMin}>{dist}km de distancia</Text>
-                  </View>
-                </View>
-
-                <View style={styles.timeIndicator}>
-                  <Text style={styles.textoTime}>45</Text>
-                  <Text style={styles.textoMin}>min</Text>
-                </View>
-
-            </TouchableOpacity> 
-            )}
+            renderItem = {({item}) => {
+              if(Math.ceil(Math.sqrt((Math.abs((((latU * (-1)) - (item.latitude * (-1))) * 111.12)) ** 2) + (Math.abs((((longU * (-1)) - (item.longitude * (-1))) * 111.12)) ** 2))) < 10){
+                return(
+                  <TouchableOpacity onPress={() => {
+                    props.children.navigation.navigate('HospitalDetails', { item })
+                  }} style={styles.cardHospitais}>
+    
+                      <View style={styles.timeIndicator}>
+                        <Image source={imageP.porte[item.porte]} style={styles.imageH}/>
+                      </View>
+    
+                      <View style={styles.textoCardH}>
+                        <View style={styles.nomeField}>
+                          <Text id="esp" numberOfLines={2} style={styles.textoHospitalNome}>{item.nome}</Text>
+                        </View>
+                        
+                        <View style={styles.distField}>
+                          <Text style={styles.textoMin}>{Math.ceil(Math.sqrt((Math.abs((((latU * (-1)) - (item.latitude * (-1))) * 111.12)) ** 2) + (Math.abs((((longU * (-1)) - (item.longitude * (-1))) * 111.12)) ** 2)))}km de distância</Text>
+                        </View>
+                      </View>
+    
+                      <View style={styles.timeIndicator}>
+                        <Text style={styles.textoTime}>45</Text>
+                        <Text style={styles.textoMin}>min</Text>
+                      </View>
+    
+                  </TouchableOpacity> 
+                )
+              }
+            }}
         />
     )
     
 }
 
 const styles = StyleSheet.create({
-    textoEspecialidade: {
-      fontSize: 18,
+    textoHospitalNome: {
+      fontSize: 17,
       fontWeight: 'bold',
     },
     listaHospitais: {
@@ -104,13 +109,13 @@ const styles = StyleSheet.create({
       elevation: 9,
     },
     nomeField: {
-      width: 155,
+      width: 150,
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
     },
     distField: {
-      width: 155,
+      width: 150,
       height: 20,
       alignItems: 'center',
       justifyContent: 'center',
