@@ -27,6 +27,21 @@ export default function ListaHospitais(props) {
     }
     //------------------------------------------//
 
+    //- Formula para calcular distancia entre as coordenadas -//
+    const latU = -23.4253133
+    const longU = -46.5154733
+    const latH = -23.53250
+    const longH = -46.77667
+
+    // Teorema de Pitagoras
+
+    let DLA = (((latU * (-1)) - (latH * (-1))) * 111.12)
+    let DLO = (((longU * (-1)) - (longH * (-1))) * 111.12)
+    let dist = Math.ceil(Math.sqrt((Math.abs(DLA) ** 2) + (Math.abs(DLO) ** 2)))
+
+    //console.warn(dist)
+    //------------------------------------------//
+
     return(
         <FlatList style={styles.listaHospitais}
             data = {hospitais}
@@ -47,7 +62,7 @@ export default function ListaHospitais(props) {
                   </View>
                   
                   <View style={styles.distField}>
-                    <Text style={styles.textoMin}>5km de distancia</Text>
+                    <Text style={styles.textoMin}>{dist}km de distancia</Text>
                   </View>
                 </View>
 
