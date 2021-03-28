@@ -1,6 +1,8 @@
 import React from 'react';
 import MapViewDirections from 'react-native-maps-directions';
 
+//- Está função serve para traçar as rotas e está sendo passado no componente mapView em components/map/Map.js -//
+
 export default function Directions({ destination, origin, onReady }) {
 
     return(

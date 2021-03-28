@@ -6,6 +6,7 @@ import axios from "axios";
 export default function ListaHospitais(props) {
     const [hospitais, setHospitais] = useState([]);
     
+    //- Conexão com a api -//
     useEffect(() => {
         axios.get("http://192.168.0.105:3000/hospitais").then((response) => {
         setHospitais(response.data.hospitais);
@@ -14,9 +15,9 @@ export default function ListaHospitais(props) {
             alert(error.message);
          });
     }, []);
+    //------------------------------------------//
 
-    //console.warn(props.children.navigation.navigate);
-
+    //- Constante que chama as imagens do porte dos hospitais -//
     const imageP = {
       porte: {
         Grande: require('../../assets/images/Grande.png'),
@@ -24,8 +25,7 @@ export default function ListaHospitais(props) {
         Pequeno: require('../../assets/images/Pequeno.png'),
       }
     }
-
-    //const navigation = useNavigation();
+    //------------------------------------------//
 
     return(
         <FlatList style={styles.listaHospitais}

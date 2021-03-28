@@ -16,6 +16,7 @@ export default class Mapa extends Component {
         destination: null,
     };
 
+    //- Componente que pega a latitude e longitude do usuario -//
     async componentDidMount(){
         navigator.geolocation.getCurrentPosition(
             ({ coords: {latitude, longitude} }) => {
@@ -29,10 +30,10 @@ export default class Mapa extends Component {
             }
         )
     }
+    //------------------------------------------//
 
-    
+    //- Componente que pega a latitude e longitude passado no hospitalDetails/Hospitaldetails.js -//
     async componentDidMount(){
-
         this.setState({
             destination: {
                 latitude: this.props.children[0],
@@ -40,6 +41,7 @@ export default class Mapa extends Component {
             },
         })
     }
+    //------------------------------------------//
 
     render(){
         const {region, destination} = this.state;
