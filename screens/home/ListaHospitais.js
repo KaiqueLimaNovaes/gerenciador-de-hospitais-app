@@ -49,10 +49,10 @@ export default function ListaHospitais(props) {
             keyExtractor = {(item) => item.id}
             decelerationRate = 'fast'
             renderItem = {({item}) => {
-              if(Math.ceil(Math.sqrt((Math.abs((((latU * (-1)) - (item.latitude * (-1))) * 111.12)) ** 2) + (Math.abs((((longU * (-1)) - (item.longitude * (-1))) * 111.12)) ** 2))) < 10){
+              if(Math.ceil(Math.sqrt((Math.abs((((latU * (-1)) - (item.latitude * (-1))) * 111.12)) ** 2) + (Math.abs((((longU * (-1)) - (item.longitude * (-1))) * 111.12)) ** 2))) < 35){
                 return(
                   <TouchableOpacity onPress={() => {
-                    props.children.navigation.navigate('HospitalDetails', { item })
+                    props.children.navigation.navigate('Detalhes Hospital', { item })
                   }} style={styles.cardHospitais}>
     
                       <View style={styles.timeIndicator}>

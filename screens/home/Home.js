@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#f6f6f7',
     },
     itemContainer: {
-      width: 220,
-      height: 220,
+      width: 200,
+      height: 200,
       borderRadius: 20,
       marginLeft: 20,
       alignItems: 'center',
@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
     },
     textoTitulo: {
       marginLeft: 10,
-      marginTop: 20,
-      marginBottom: 20,
+      marginTop: 15,
+      marginBottom: 15,
       fontSize: 35,
       fontWeight: 'bold',
     },

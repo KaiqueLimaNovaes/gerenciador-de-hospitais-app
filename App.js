@@ -14,7 +14,7 @@ export function ScreenNav() {
   return (
     <Stack.Navigator>
         <Stack.Screen options={{headerShown: false}} name="Hospitais" component={Screens.Home} />
-        <Stack.Screen name="HospitalDetails" component={Screens.HospitalDetails} />
+        <Stack.Screen name="Detalhes Hospital" component={Screens.HospitalDetails} />
     </Stack.Navigator>
   );
 }
