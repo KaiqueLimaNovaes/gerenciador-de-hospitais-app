@@ -8,7 +8,7 @@ export default function ListaHospitais(props) {
     
     //- Conexão com a api -//
     useEffect(() => {
-        axios.get("http://www.klndigital.com:3000/hospitais").then((response) => {
+        axios.get("https://www.klndigital.com/hospitais").then((response) => {
         setHospitais(response.data.hospitais);
         }).catch((error)=>{
             console.log("Api call error");
@@ -42,6 +42,8 @@ export default function ListaHospitais(props) {
 
     let dist = Math.ceil(Math.sqrt((Math.abs(DLA) ** 2) + (Math.abs(DLO) ** 2)))
     //------------------------------------------//
+
+    //console.warn(hospitais)
 
     return(
         <FlatList style={styles.listaHospitais}
