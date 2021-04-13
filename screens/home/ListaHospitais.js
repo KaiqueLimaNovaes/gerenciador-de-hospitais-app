@@ -8,7 +8,7 @@ export default function ListaHospitais(props) {
     
     //- Conexão com a api -//
     useEffect(() => {
-        axios.get("http://192.168.0.12:3000/hospitais").then((response) => {
+        axios.get("http://www.klndigital.com:3000/hospitais").then((response) => {
         setHospitais(response.data.hospitais);
         }).catch((error)=>{
             console.log("Api call error");
