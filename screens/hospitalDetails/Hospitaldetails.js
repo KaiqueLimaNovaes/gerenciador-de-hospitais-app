@@ -15,17 +15,20 @@ export default function HospitalDetails({route}) {
             <Mapa>{[item.latitude, item.longitude]}</Mapa>
             
             <View style={styles.containerInfo}>
-                <Text style={styles.tituloHospital}>{item.nome}</Text>
-
                 <View style={styles.crono}>
                     <TouchableOpacity style={styles.botaoCrono} onPress={() => {}}>
-                        <Text style={styles.tituloHospital}>Entrada</Text>
+                        <Text style={styles.tituloCrono}>Entrada</Text>
                     </TouchableOpacity>
-                    <Text style={styles.textCrono}>00:00:00</Text>
+                    <TouchableOpacity style={styles.botaoCrono} onPress={() => {}}>
+                        <Text style={styles.tituloCrono}>00:00:00</Text>
+                    </TouchableOpacity>
                 </View>
 
+                <Text style={styles.tituloHospital}>{item.nome}</Text>
+
+                <Text style={styles.textHospitalDeatails}>Tempo medio de atendimento:</Text>
+
                 <View style={styles.crono}>
-                    <Text style={styles.textHospitalDeatails}>Tempo medio de atendimento:</Text>
                     <Text style={styles.tempoHospitalDeatails}>45 min</Text>
                 </View>
             </View>
@@ -36,18 +39,24 @@ export default function HospitalDetails({route}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f6f6f7',
+        backgroundColor: '#70d5fc',
     },
     tituloHospital: {
         fontSize: 18,
+        fontWeight: 'bold',
+    },
+    tituloCrono: {
+        fontSize: 23,
         fontWeight: 'bold',
     },
     containerInfo: {
         flex: 1,
         backgroundColor: '#f6f6f7',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         padding: 10,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
     },
     crono: {
         width: '100%',
@@ -56,13 +65,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     botaoCrono: {
-        width: 150,
+        width: 160,
         height: 50,
         borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#70d5fc',
-        marginTop: 15,
+        marginBottom: 15,
     },
     textCrono: {
         fontSize: 40,
